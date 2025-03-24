@@ -13,11 +13,11 @@ public class MathQuiz1 {
 
         UserManager manager = new UserManager();
 
-        int score = manager.setUser();
+        int score = manager.getScore();
         int rounds = 3;
         Scanner sc = new Scanner(System.in);
 
-        while (rounds > 0) {
+        while (rounds-- > 0) {
 
             Question thisQ = new Question();
             thisQ.newQuestion();
@@ -40,11 +40,11 @@ public class MathQuiz1 {
                     System.out.println("Invalid input. Please input again.");
                 }
             }
-
             score += Question.checkAnswer(uAnswer, cAnswer);
-            rounds--;
         }
-        System.out.println("You got: " + score);
+        System.out.println("Score updated: " + score);
+
+        manager.saveScores();
 
         sc.close();
     }

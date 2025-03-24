@@ -1,20 +1,28 @@
 package Task04_1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.security.KeyStore.Entry;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.Set;
 
 public class UserManager {
 
     HashMap<String, Integer> users = new HashMap<String, Integer>();
+
+    private int score;
+    String username;
 
     UserManager() {
         loadUsers();
     }
 
     private void loadUsers() {
+
         try (BufferedReader reader = new BufferedReader(new FileReader("resources/T04_users.txt"))) {
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
@@ -24,25 +32,37 @@ public class UserManager {
         } catch (IOException e) {
             System.out.println("Error loading file... Please ensure target file is in 'resoures/T04_users.txt'");
         }
-    }
-
-    public int setUser() {
 
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What is your name?");
-        String userName = scan.nextLine();
+        username = scan.nextLine();
 
-        if (users.containsKey(userName)) {
-            System.out.println("User detected! user current score is " + users.get(userName));
-            scan.close();
-            return users.get(userName);
+        if (users.containsKey(username)) {
+            System.out.println("User detected! user current score is " + users.get(username));
+            score = users.get(username);
         } else {
             System.out.println("User dosnt exist, score starts at 0");
-            scan.close();
-            return 0;
+            score = 0;
         }
-
     }
 
+    public void saveScores() {
+        users.put(username, score);
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("resources/T04_users.txt"))) {
+            for (String s : users.keySet()) {
+                writer.write(s + " " + users.get(s));
+            }
+        } catch (IOException e) {
+            System.out.println("Failed to write to file");
+        }
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 }
