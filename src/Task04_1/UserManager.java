@@ -15,7 +15,7 @@ public class UserManager {
     }
 
     private void loadUsers() {
-        try (BufferedReader reader = new BufferedReader(new FileReader("/resoures/T04_users.txt"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("resources/T04_users.txt"))) {
             String currentLine;
             while ((currentLine = reader.readLine()) != null) {
                 String[] userInfo = currentLine.split(" ");
@@ -34,7 +34,7 @@ public class UserManager {
         String userName = scan.nextLine();
 
         if (users.containsKey(userName)) {
-            System.out.println("User detected! user current score is" + users.get(userName));
+            System.out.println("User detected! user current score is " + users.get(userName));
             scan.close();
             return users.get(userName);
         } else {
