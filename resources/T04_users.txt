@@ -1,4 +1,5 @@
-kevin 100
+kevin 10
+ethan -30
 bob 70
 leo 10
 alice 80

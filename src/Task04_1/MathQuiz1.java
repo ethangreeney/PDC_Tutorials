@@ -14,7 +14,7 @@ public class MathQuiz1 {
         UserManager manager = new UserManager();
 
         int score = manager.getScore();
-        int rounds = 3;
+        int rounds = 10;
         Scanner sc = new Scanner(System.in);
 
         while (rounds-- > 0) {
@@ -44,6 +44,7 @@ public class MathQuiz1 {
         }
         System.out.println("Score updated: " + score);
 
+        manager.setScore(score);
         manager.saveScores();
 
         sc.close();

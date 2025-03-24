@@ -15,6 +15,7 @@ public class UserManager {
     HashMap<String, Integer> users = new HashMap<String, Integer>();
 
     private int score;
+
     String username;
 
     UserManager() {
@@ -36,7 +37,7 @@ public class UserManager {
         Scanner scan = new Scanner(System.in);
 
         System.out.println("What is your name?");
-        username = scan.nextLine();
+        username = scan.nextLine().toLowerCase();
 
         if (users.containsKey(username)) {
             System.out.println("User detected! user current score is " + users.get(username));
@@ -52,10 +53,15 @@ public class UserManager {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("resources/T04_users.txt"))) {
             for (String s : users.keySet()) {
                 writer.write(s + " " + users.get(s));
+                writer.newLine();
             }
         } catch (IOException e) {
             System.out.println("Failed to write to file");
         }
+    }
+
+    public void setScore(int score) {
+        this.score = score;
     }
 
     public int getScore() {
