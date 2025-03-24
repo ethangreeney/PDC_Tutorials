@@ -5,10 +5,8 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.security.KeyStore.Entry;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.util.Set;
 
 public class UserManager {
 

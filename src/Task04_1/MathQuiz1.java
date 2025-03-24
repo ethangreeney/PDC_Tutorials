@@ -1,5 +1,6 @@
 package Task04_1;
 
+import java.util.HashSet;
 import java.util.Scanner;
 
 /**
@@ -13,21 +14,28 @@ public class MathQuiz1 {
 
         UserManager manager = new UserManager();
 
+        HashSet<String> questionSet = new HashSet<String>();
+
         int score = manager.getScore();
         int rounds = 10;
         Scanner sc = new Scanner(System.in);
 
         while (rounds-- > 0) {
+            Question thisQ;
+            do {
+                thisQ = new Question();
+                thisQ.newQuestion();
+            } while (questionSet.contains(thisQ.toString()));
 
-            Question thisQ = new Question();
-            thisQ.newQuestion();
+            questionSet.add(thisQ.toString());
+
             double cAnswer = thisQ.getResult();
             double uAnswer = Double.MAX_VALUE;
             boolean isValid = false;
 
             while (!isValid) {
                 System.out.println(thisQ);
-                System.out.print("Your answer is:  (x to quit) ");
+                System.out.print("Your answer is: (x to quit) ");
                 String line = sc.nextLine();
                 if (line.trim().equalsIgnoreCase("x")) {
                     System.out.println("You got: " + score);
