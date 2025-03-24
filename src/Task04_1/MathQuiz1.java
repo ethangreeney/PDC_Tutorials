@@ -11,7 +11,9 @@ public class MathQuiz1 {
 
     public static void main(String[] args) {
 
-        int score = 0;
+        UserManager manager = new UserManager();
+
+        int score = manager.setUser();
         int rounds = 3;
         Scanner sc = new Scanner(System.in);
 
