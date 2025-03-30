@@ -10,8 +10,10 @@ public class PrintStars implements Runnable {
 
     public static void main(String[] args) {
 
-        Thread PrintSpaces = new Thread(new PrintSpaces(9));
-        Thread PrintStars = new Thread(new PrintStars(9));
+        int rows = 20;
+
+        Thread PrintSpaces = new Thread(new PrintSpaces(rows));
+        Thread PrintStars = new Thread(new PrintStars(rows));
 
         PrintSpaces.start();
 
@@ -34,7 +36,7 @@ public class PrintStars implements Runnable {
             }
             System.out.println();
             try {
-                Thread.sleep(20);
+                Thread.sleep(40);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -58,7 +60,7 @@ class PrintSpaces implements Runnable {
                 System.out.print(" ");
             }
             try {
-                Thread.sleep(20);
+                Thread.sleep(40);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
