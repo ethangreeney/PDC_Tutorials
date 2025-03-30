@@ -8,6 +8,11 @@ public class PrintOdd implements Runnable {
         Thread PrintOdd = new Thread(new PrintOdd());
         Thread PrintEven = new Thread(new PrintEven());
         PrintOdd.start();
+        try {
+            PrintOdd.join(10);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         PrintEven.start();
     }
 
