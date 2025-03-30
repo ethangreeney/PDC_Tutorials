@@ -1,12 +1,16 @@
 package Task05_1;
 
-public class PrintOdd implements Runnable {
+public class Counter implements Runnable {
 
-    int num = 1;
+    int num;
+
+    Counter(int i) {
+        num = i;
+    }
 
     public static void main(String[] args) {
-        Thread PrintOdd = new Thread(new PrintOdd());
-        Thread PrintEven = new Thread(new PrintEven());
+        Thread PrintOdd = new Thread(new Counter(1));
+        Thread PrintEven = new Thread(new Counter(2));
         PrintOdd.start();
         try {
             PrintOdd.join(10);
@@ -15,22 +19,6 @@ public class PrintOdd implements Runnable {
         }
         PrintEven.start();
     }
-
-    public void run() {
-        for (int j = this.num; j <= 10; j += 2) {
-            System.out.print(j + " ");
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-}
-
-class PrintEven implements Runnable {
-
-    int num = 2;
 
     public void run() {
         for (int j = num; j <= 10; j += 2) {
