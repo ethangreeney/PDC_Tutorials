@@ -8,8 +8,16 @@ public class Log {
 
     BufferedWriter bufWriter;
     public static int instanceNumber = 0;
+    private static Log thisLog;
 
-    public Log(String str) {
+    public static Log getInstance() {
+        if (thisLog == null) {
+            thisLog = new Log();
+        }
+        return thisLog;
+    }
+
+    public void addToLog(String str) {
         try {
             this.bufWriter = new BufferedWriter(new FileWriter("./resources/T09_log.txt", true));
 

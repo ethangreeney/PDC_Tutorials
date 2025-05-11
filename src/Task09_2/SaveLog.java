@@ -15,14 +15,14 @@ public class SaveLog extends JFrame {
     public JButton button = new JButton("Save");
 
     public SaveLog() {
-        text = new TextField();
+        text = new TextField(40);
 
         file = new File("log.txt");
     }
 
     public void writeToFile() {
         String str = text.getText();
-        Log log = new Log(str);
+        Log.getInstance().addToLog(str);
 
     }
 
