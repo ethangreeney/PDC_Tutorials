@@ -27,22 +27,31 @@ public class SumAll {
     }
 
     public int sumNums1(Vector v) {
+
         int sum = 0;
-        Iterator iter;
-        //add your code here
+        Iterator<Integer> iter = v.iterator();
+
+        while (iter.hasNext()) {
+            sum += iter.next();
+        }
 
         return sum;
     }
 
     public int sumNums2(Vector<Integer> v) {
         int sum = 0;
-        //add your code here
+        for (int i : v) {
+            sum += i;
+        }
         return sum;
     }
 
     public int sumNums3(Object... objs) {
         int sum = 0;
-        //add your code here
+        for (Object i : objs) {
+            sum += (int) i;
+        }
+
         return sum;
     }
 
