@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Mon May 12 13:53:01 NZST 2025:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0196-c232-0b32-00000f7e7850 
+on database directory /Users/ethangreene/Documents/Java/PDC_Tutorials/PlayerDB with class loader jdk.internal.loader.ClassLoaders$AppClassLoader@43e45247 
+Loaded from file:/Users/ethangreene/Documents/Java/PDC_Tutorials/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=22.0.2+9-70
+user.dir=/Users/ethangreene/Documents/Java/PDC_Tutorials
+os.name=Mac OS X
+os.arch=aarch64
+os.version=15.4.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
