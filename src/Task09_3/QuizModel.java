@@ -13,7 +13,7 @@ public class QuizModel {
     private String dbpassword = "pdc";
 
     private String currentUsername = null;
-    // No need to store password in model after login for this simple app
+
     private int currentScore = 0;
     private int currentAnswer = 0;
     private int num1 = 0;
@@ -36,14 +36,13 @@ public class QuizModel {
             statement.close();
         } catch (Throwable e) {
             System.out.println("error in dbsetup: " + e.getMessage());
-            // Logger.getLogger(QuizModel.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
     private boolean checkTableExisting(String newTableName) {
         boolean flag = false;
         try {
-            if (conn == null) { // Ensure conn is initialized
+            if (conn == null) {
                 System.out.println("Connection not established in checkTableExisting.");
                 return false;
             }
@@ -63,14 +62,13 @@ public class QuizModel {
                 rsDBMeta.close();
             }
         } catch (SQLException ex) {
-            // Logger.getLogger(QuizModel.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("SQL error in checkTableExisting: " + ex.getMessage());
         }
         return flag;
     }
 
     public boolean attemptLogin(String username, String password) {
-        this.currentUsername = username; // Tentatively set username
+        this.currentUsername = username;
         try {
             Statement statement = conn.createStatement();
             ResultSet rs = statement.executeQuery("SELECT userid, password, score FROM UserInfo "
@@ -85,18 +83,17 @@ public class QuizModel {
                 } else {
                     rs.close();
                     statement.close();
-                    return false; // Wrong password
+                    return false;
                 }
-            } else { // New user
+            } else {
                 statement.executeUpdate("INSERT INTO UserInfo "
                         + "VALUES('" + username + "', '" + password + "', 0)");
                 currentScore = 0;
                 rs.close();
                 statement.close();
-                return true; // New user created and logged in
+                return true;
             }
         } catch (SQLException ex) {
-            // Logger.getLogger(QuizModel.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("SQL error in attemptLogin: " + ex.getMessage());
             return false;
         }
