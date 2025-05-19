@@ -1,23 +1,23 @@
 package Task10_2;
 
-
 import java.util.Arrays;
 
 public class ArrayTest {
 
     public static void main(String args[]) {
         ArrayTest at = new ArrayTest();
-        double i = at.find(0, new int[]{1, 4, 2, 5, 7, 9});
+        double i = at.find(0, new int[] { 1, 4, 2, 5, 7, 9 });
         System.out.println(i);
     }
 
-    //index 0: average, 1: minimum, 2:maximum
+    // index 0: average, 1: minimum, 2:maximum
     public double find(int index, int[] intArray) {
         if (index < 0) {
             throw new IllegalArgumentException("index should be greater than or equal to 0");
         }
         if (intArray == null || intArray.length < 2) {
-            throw new IllegalArgumentException("intArray cannot be null and the length of the array must be no less than 2");
+            throw new IllegalArgumentException(
+                    "intArray cannot be null and the length of the array must be no less than 2");
         }
         int sum = 0;
         int count = 0;

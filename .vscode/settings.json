@@ -1,3 +1,7 @@
 {
-    "java.debug.settings.onBuildFailureProceed": true
+    "java.project.referencedLibraries": ["lib/**/*.jar" ],
+    "java.project.sourcePaths": [
+        "test",
+        "src"
+    ]
 }
