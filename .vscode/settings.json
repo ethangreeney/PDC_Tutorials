@@ -1,7 +1,13 @@
 {
-    "java.project.referencedLibraries": ["lib/**/*.jar" ],
+    "java.project.referencedLibraries": [
+        "/Users/ethangreene/Documents/Java/PDC_Tutorials/lib/junit-4.12.jar",
+        "/Users/ethangreene/Documents/Java/PDC_Tutorials/lib/derby.jar",
+        "/Users/ethangreene/Documents/Java/PDC_Tutorials/lib/derbyclient.jar",
+        "/Users/ethangreene/Documents/Java/PDC_Tutorials/lib/hamcrest-core-1.3.jar"
+    ],
     "java.project.sourcePaths": [
         "test",
-        "src"
+        "src",
+        "resources"
     ]
 }
